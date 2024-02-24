@@ -78,6 +78,7 @@ import pdfplumber
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
+from google.cloud import firestore
 
 st.title("Candidate Selection Tool")
 
