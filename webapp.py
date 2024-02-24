@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
 from google.cloud import firestore
+import datetime
 
 # Authenticate to Firestore with the JSON account key.
 db = firestore.Client.from_service_account_json("firestore-key.json")
