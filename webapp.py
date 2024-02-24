@@ -21,6 +21,22 @@ uploadedResume = st.file_uploader("Upload resume",type="pdf")
 
 click = st.button("Process")
 
+# Define a function to store the data
+def store_data(job_description, resume, match_percentage):
+    # Create a reference to the collection
+    data_ref = db.collection('resume_matches')
+
+    # Format the data
+    data = {
+        'job_description': job_description,
+        'resume': resume,
+        'match_percentage': match_percentage,
+        'timestamp': datetime.datetime.now()
+    }
+
+    # Add the data to the collection
+    data_ref.add(data)
+    
 try:
     global job_description
     with pdfplumber.open(uploadedJD) as pdf:
@@ -82,4 +98,7 @@ if click:
     ax.set_title('Similarity Comparison')
     st.pyplot(fig)
 
+    # Store the data
+    store_data(job_description, resume, match)
+    
 st.caption(" ~ made by vilas")
