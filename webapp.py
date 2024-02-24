@@ -26,13 +26,13 @@ click = st.button("Process")
 def store_data(job_description, resume, match_percentage):
     # Create a reference to the collection
     data_ref = db.collection('resume_matches')
-
+    Timestamp = datetime.datetime.now()
     # Format the data
     data = {
         'job_description': job_description,
         'resume': resume,
         'match_percentage': match_percentage,
-        'timestamp': datetime.datetime.now()
+        'timestamp': Timestamp
     }
 
     # Add the data to the collection
